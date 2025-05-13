@@ -1,0 +1,17 @@
+volumes:
+  o2-ssd-data:
+    name: o2-ssd-data
+
+services:
+  o2-ssd-data-db:
+    image: postgres:17.2-alpine
+    container_name: o2-ssd-data-db
+    environment:
+      - POSTGRES_USER=${DB_USER:-o2-ssd}
+      - POSTGRES_DB=${DB_NAME:-o2-ssd}
+      - POSTGRES_PASSWORD=${DB_PASS:-o2-ssd}
+    ports:
+      - ${DEV_DB_PORT}:5432
+    volumes:
+      - o2-ssd-data:/var/lib/postgresql/data
+    restart: unless-stopped

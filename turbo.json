@@ -1,0 +1,35 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "outputs": ["dist/**"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false
+    },
+    "start:dev": {
+      "persistent": true,
+      "cache": false
+    },
+    "build": {
+      "persistent": false,
+      "cache": true
+    },
+    "lint": {
+      "persistent": false,
+      "cache": true
+    },
+    "lint:fix": {
+      "persistent": false,
+      "cache": true
+    },
+    "test": {
+      "persistent": false,
+      "cache": true
+    }
+  }
+}
